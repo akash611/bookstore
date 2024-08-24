@@ -8,6 +8,10 @@
     pkgs.zulu17
     pkgs.maven
   ];
+   services.mysql = {
+    enable = true;
+    package = pkgs.mysql80;
+  };
   # Sets environment variables in the workspace
   env = {};
   idx = {
@@ -15,7 +19,6 @@
     extensions = [
       "vscjava.vscode-java-pack"
       "rangav.vscode-thunder-client"
-      "redhat.fabric8-analytics"
       "redhat.java"
       "vscjava.vscode-java-dependency"
       "vscjava.vscode-java-test"
@@ -23,7 +26,8 @@
       "Pivotal.vscode-boot-dev-pack"
       "vmware.vscode-spring-boot"
       "vscjava.vscode-spring-boot-dashboard"
-      "vscjava.vscode-spring-initializr"
+      "mtxr.sqltools-driver-mysql"
+      "mtxr.sqltools"
     ];
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
@@ -32,7 +36,7 @@
       };
       # Runs when a workspace is (re)started
       onStart = {
-        run-server = "PORT=3000 mvn spring-boot:run";
+        run-server = "mvn spring-boot:run";
       };
     };
   };

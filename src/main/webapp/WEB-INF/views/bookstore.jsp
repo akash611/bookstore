@@ -82,7 +82,7 @@
         
     </div>
     <div class="footer">
-        © 2024 Akash's Book Store. All rights reserved.
+        Â© 2024 Akash's Book Store. All rights reserved.
     </div>
 </body>
 </html>
